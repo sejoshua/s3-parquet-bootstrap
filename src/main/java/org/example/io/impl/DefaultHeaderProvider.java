@@ -1,15 +1,19 @@
 package org.example.io.impl;
 
-import lombok.AllArgsConstructor;
-
 /**
  * @author Joshua Xing
  */
-@AllArgsConstructor
 public class DefaultHeaderProvider {
     private static final String COLUMN_NAME_TEMPLATE = "col_%d";
 
     private final int columnCount;
+
+    public DefaultHeaderProvider(int columnCount) {
+        if (columnCount < 1) {
+            throw new IllegalArgumentException("Expecting at least 1 column, but got " + columnCount);
+        }
+        this.columnCount = columnCount;
+    }
 
     public String[] getHeader() {
         String[] header = new String[columnCount];

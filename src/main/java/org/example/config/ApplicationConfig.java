@@ -13,8 +13,6 @@ public class ApplicationConfig {
 
     // TODO: these should be sourced from configuration file
     private final String region = "ap-southeast-2";
-    private final String accessKey = "";
-    private final String secretKey = "";
     private final String bucketName = "candidate-67-s3-bucket";
     private final Map<String, Boolean> fileWithHeaderMap = Map.of("AirbnbListing.csv", true,
             "ausnews.csv", false,
@@ -22,8 +20,13 @@ public class ApplicationConfig {
     private final String localDumpFolderName = "tmp";
     private final boolean deleteLocalFile = true;
     private final String filterString = "ellipsis";
+    private final String accessKey;
+    private final String secretKey;
 
-    private ApplicationConfig() {}
+    private ApplicationConfig() {
+        accessKey = System.getProperty("aws.accessKey");
+        secretKey = System.getProperty("aws.secretKey");
+    }
 
     public static ApplicationConfig getInstance() {
         return INSTANCE;
