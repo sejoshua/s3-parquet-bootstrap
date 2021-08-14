@@ -13,8 +13,8 @@ public class ApplicationConfig {
 
     // TODO: these should be sourced from configuration file
     private final String region = "ap-southeast-2";
-    private final String accessKey = "AKIAZUO64Q7BD3SB3SM4";
-    private final String secretKey = "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";
+    private final String accessKey = "";
+    private final String secretKey = "";
     private final String bucketName = "candidate-67-s3-bucket";
     private final Map<String, Boolean> fileWithHeaderMap = Map.of("AirbnbListing.csv", true,
             "ausnews.csv", false,
